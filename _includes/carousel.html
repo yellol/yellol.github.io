@@ -123,7 +123,6 @@ letterstring | split: ',' %} {% assign number = include.number | minus: 1 %}
         background: #1e2030;
         border: none;
         cursor: pointer;
-        padding-left: 8px;
         padding-right: 8px;
         font-size: 1rem;
         font-weight: 600;
@@ -187,7 +186,6 @@ letterstring | split: ',' %} {% assign number = include.number | minus: 1 %}
         background-position: center;
         opacity: 0.1;
         transform: scale(0.95);
-        transition: opacity 0.5s ease, transform 0.5s ease;
         will-change: transform;
     }
     .carousel__slide.is-active {
@@ -270,12 +268,14 @@ letterstring | split: ',' %} {% assign number = include.number | minus: 1 %}
         width: fit-content;
         margin-left: auto;
         margin-right: auto;
+        opacity: 0.1;
         position: relative;
         z-index: 5;
     }
     .carousel__outer .carousel__open-full:hover {
         background: #eee;
         color: #111;
+        opacity: 0.5;
     }
     .carousel__outer .carousel__open-full svg {
         width: 0.9em;
@@ -286,7 +286,7 @@ letterstring | split: ',' %} {% assign number = include.number | minus: 1 %}
 
 <script>
     (function () {
-        var TRANSITION_MS = 250;
+        var TRANSITION_MS = 20;
 
         var images = [
             {% for item in page.carousels[number].images %}
@@ -318,10 +318,7 @@ letterstring | split: ',' %} {% assign number = include.number | minus: 1 %}
         }
 
         // ── move the track (with or without transition) ───────────────────────────
-        function moveTo(idx, animate) {
-            track.style.transition = animate
-                ? 'transform ' + TRANSITION_MS + 'ms ease'
-                : 'none';
+        function moveTo(idx) {
             track.style.transform = 'translateX(-' + (idx * 100) + '%)';
         }
 
@@ -378,6 +375,7 @@ letterstring | split: ',' %} {% assign number = include.number | minus: 1 %}
         // ── collapse toggle ───────────────────────────────────────────────────────
         var outer  = document.getElementById('outer{{ number }}');
         var toggle = document.getElementById('toggle{{ number }}');
+        outer.classList.toggle('is-collapsed');
         toggle.addEventListener('click', function () {
             var collapsed = outer.classList.toggle('is-collapsed');
             toggle.setAttribute('aria-expanded', !collapsed);

@@ -30,7 +30,6 @@ github_username: yellol
 # theme: midnight
 remote_theme: yellol/moonwalk@gh-pages
 plugins:
-  - jekyll-feed
   - jekyll-remote-theme
 
 theme_config:

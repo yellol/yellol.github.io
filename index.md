@@ -49,6 +49,7 @@ carousels:
     - image: /images/blue-garden/1.png
 
 ---
+{% include accents.html %}
 
 # yemlow's Roblox Portfolio
 > 2-3 years of well-founded building experience in Roblox Studio, mostly for solo projects. Specialized in classic-style studbuilding, with some hybrid styles dabbled in as well. [View some of my builds here!](https://www.roblox.com/games/110172971908669/The-Folio)

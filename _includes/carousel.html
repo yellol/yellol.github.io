@@ -114,19 +114,20 @@ letterstring | split: ',' %} {% assign number = include.number | minus: 1 %}
     /* ── collapsible outer ── */
     .carousel__outer {
         margin: 1rem 0;
+        margin-bottom: -0.5rem;
     }
     .carousel__toggle {
         display: flex;
         align-items: center;
         gap: 0.4em;
         font: inherit;
-        background: #1e2030;
+        background: none;
         border: none;
         cursor: pointer;
         padding-right: 8px;
         font-size: 1rem;
         font-weight: 600;
-        color: #c6a0f6;
+        color: var(--code-text);
         width: 100%;
         text-align: left;
     }
@@ -375,7 +376,7 @@ letterstring | split: ',' %} {% assign number = include.number | minus: 1 %}
         // ── collapse toggle ───────────────────────────────────────────────────────
         var outer  = document.getElementById('outer{{ number }}');
         var toggle = document.getElementById('toggle{{ number }}');
-        outer.classList.toggle('is-collapsed');
+        //outer.classList.toggle('is-collapsed');
         toggle.addEventListener('click', function () {
             var collapsed = outer.classList.toggle('is-collapsed');
             toggle.setAttribute('aria-expanded', !collapsed);
